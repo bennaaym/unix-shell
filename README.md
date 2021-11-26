@@ -1,7 +1,6 @@
 # UNIX SHELL
 
 Table of Contents:
-
 * [About](#about)
 * [Get Started](#get-started)
 * [Built-in Commands](#built-in-commands)
@@ -50,8 +49,8 @@ To contribute to this open-source project, follow these steps:
 <br />
 </td>
 <td align="center">
-<a href="https://github.com/hajergafsi">
-<img src="https://avatars.githubusercontent.com/u/56479423?v=4" width="100px;" alt="" style="border-radius:50%"/>
+<a href="https://github.com/FatihAytar06">
+<img src="https://avatars.githubusercontent.com/u/63102624?v=4" width="100px;" alt="" style="border-radius:50%"/>
 <br />
 <sub><b>Fatih Aytar</b></sub>
 </a>
@@ -79,4 +78,4 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 
 [license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
-[license-url]: https://github.com/bennaaym/unix-shell/blob/main/LICENSE
+[license-url]: https://github.com/bennaaym/unix-shell/blob/main/LICENSE.md
