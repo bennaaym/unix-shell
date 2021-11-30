@@ -20,4 +20,19 @@ void displayError(char* errorType, char* errorDescription)
     printf("\n");
 }
 
+int getNumberOfWords(char *s){
+    int i,j,count=0;
+    for(i=0,j=1;i<strlen(s)-1;i++,j++)  
+    {
+    	if(s[i]==' ')
+    	{      
+          if(s[j]==' '){
+              continue;
+          };
+          count++;
+		}
+ 	}
+ 	return (count+1);
+}
+
 
