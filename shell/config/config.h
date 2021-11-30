@@ -18,9 +18,11 @@ typedef struct Config
     char* SHELL_NAME;
     unsigned short COMMAND_MAX_CHARS ; // max. number of letters to be supported by a command
     unsigned short COMMAND_MAX_WORDS ; // max. number of words to be supported by a command
+    char* PROMPT_CWD_COLOR;  // set the color of the CWD path
+    char* PROMPT_TEXT_COLOR; // set the color of the text
 
 } Config;
 
-static const Config CONFIG = {"sau",80,10};
+static const Config CONFIG = {"sau",80,10,"\e[1;31m","\e[0;36m"};
 
 #endif
