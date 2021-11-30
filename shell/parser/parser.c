@@ -12,7 +12,7 @@
 #include <string.h>
 #include "../config/config.h"
 #include "../command_handler/handler.h"
-#include "util/util.h"
+#include "../util/util.h"
 #include <stdio.h>
 
 void parseSpace(char* input, char** parsed)
@@ -33,6 +33,9 @@ int processInput(char* input, char** parsed)
 	if(strlen(input) > CONFIG.COMMAND_MAX_CHARS)
 	{
 		displayError("MaxLengthError","length shouldn't exceed 80 characters !");
+		return -1;
+	}else if(getNumberOfWords(input) > CONFIG.COMMAND_MAX_WORDS){
+		displayError("MaxNumberOfWordsError","The maximum number of words allowed in the command is 10 !");
 		return -1;
 	}
 

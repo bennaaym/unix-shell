@@ -13,5 +13,6 @@
 
 
 void displayError(char*,char*);
+int getNumberOfWords(char *s);
 
 #endif
