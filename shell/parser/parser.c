@@ -18,12 +18,17 @@
 void parseSpace(char* input, char** parsed)
 {
 	char* token = strtok(input," ");
-	for (int i=0; i< CONFIG.COMMAND_MAX_WORDS;i++)
+	int i;
+	for (i = 0; i< CONFIG.COMMAND_MAX_WORDS;i++)
 	{
 		if(token == NULL) break;
 		parsed[i] = token;
         token = strtok(NULL, " ");
 	}
+
+
+	parsed[i] = NULL;
+
 }
 
 int processInput(char* input, char** parsed)
@@ -34,7 +39,9 @@ int processInput(char* input, char** parsed)
 	{
 		displayError("MaxLengthError","length shouldn't exceed 80 characters !");
 		return -1;
-	}else if(getNumberOfWords(input) > CONFIG.COMMAND_MAX_WORDS){
+	}
+	else if(getNumberOfWords(input) > CONFIG.COMMAND_MAX_WORDS)
+	{
 		displayError("MaxNumberOfWordsError","The maximum number of words allowed in the command is 10 !");
 		return -1;
 	}

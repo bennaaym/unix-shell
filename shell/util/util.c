@@ -1,6 +1,6 @@
 /**
  * @file util.c
- * @author Aymen Bennabi
+ * @author Aymen Bennabi | Hajer Gafsi
  * @brief Holds the implementation of utility functons
  * @version 0.1
  * @date 2021-11-30
@@ -20,9 +20,11 @@ void displayError(char* errorType, char* errorDescription)
     printf("\n");
 }
 
-int getNumberOfWords(char *s){
+int getNumberOfWords(char *s)
+{
     int i,j,count=0;
-    for(i=0,j=1;i<strlen(s)-1;i++,j++)  
+    int len = strlen(s) - 1;
+    for(i=0,j=1;i<len;i++,j++)  
     {
     	if(s[i]==' ')
     	{      
