@@ -16,22 +16,28 @@
 #include "../config/config.h"
 #include "prompt.h"
 
+
 int readInput(char* command)
 {
     fgets(command,CONFIG.COMMAND_MAX_CHARS,stdin);
     command[strlen(command) - 1] = '\0';
  
-    if (strlen(command) != 0) return 1;
-    
+    if (strlen(command) != 0) 
+    {
+        return 1;
+    }
+
     return 0;
 }
 
 void prompt()
 {
-    printf("%s",CONFIG.PROMPT_CWD_COLOR);
+    printf("%s",CONFIG.PROMPT_USERNAME_COLOR);
     printUserName();
+    printf("%s",CONFIG.PROMPT_CWD_COLOR);
     printf(":~");
     printWorkingDirectory();   
+    printf("%s",CONFIG.PROMPT_LOGO_COLOR);
     printf(": %s > ",CONFIG.SHELL_NAME);
     printf("%s",CONFIG.PROMPT_TEXT_COLOR);
 }
@@ -42,7 +48,7 @@ void initPrompt()
 
     clear();
 
-    printf("%s",CONFIG.PROMPT_TEXT_COLOR);                                                                                                                                     
+    printf("%s",CONFIG.PROMPT_LOGO_COLOR);                                                                                                                                     
     
     for(int i =0 ;i < MAX_LEN;i++)
         printf("*");
@@ -74,7 +80,6 @@ void printWorkingDirectory()
     getcwd(cwd, sizeof(cwd));
     printf("%s", cwd);
 }
-
 
 void clear()
 {
