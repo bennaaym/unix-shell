@@ -12,6 +12,7 @@
 #include <stdio.h>
 #include <string.h>
 
+
 void displayError(char* errorType, char* errorDescription)
 {
     printf("%s :",errorType);
@@ -35,5 +36,3 @@ int getNumberOfWords(char *s)
  	}
  	return (count+1);
 }
-
-

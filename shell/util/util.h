@@ -1,6 +1,6 @@
 /**
  * @file util.h
- * @author Aymen Bennabi
+ * @author Aymen Bennabi | Hajer Gafsi
  * @brief  Holds the blueprint of utility functions
  * @version 0.1
  * @date 2021-11-30
@@ -14,5 +14,4 @@
 
 void displayError(char*,char*);
 int getNumberOfWords(char*);
-
 #endif

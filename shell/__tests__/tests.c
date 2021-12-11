@@ -9,13 +9,13 @@
  * 
  */
 
-
 #include <stdio.h>
 #include <assert.h>
 #include <string.h>
 #include "../config/config.h"
 #include "../parser/parser.h"
 #include "../command_handler/handler.h"
+
 
 void test_parser_command_max_chars()
 {   
@@ -98,5 +98,3 @@ void run_tests()
     test_parser_parse_command_with_multiple_arbitrary_spaces();
     test_parser_identify_builtin_commands();
 }
-
-

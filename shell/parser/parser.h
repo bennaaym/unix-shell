@@ -14,5 +14,4 @@
 
 void parseSpace(char*, char**);
 int processInput(char*, char**);
-
 #endif

@@ -15,6 +15,7 @@
 #include "../util/util.h"
 #include <stdio.h>
 
+
 void parseSpace(char* input, char** parsed)
 {
 	char* token = strtok(input," ");
@@ -46,13 +47,10 @@ int processInput(char* input, char** parsed)
 		return -1;
 	}
 
-
 	parseSpace(input, parsed);
 	
-
 	if (handleBuiltinCommand(parsed))
 		return 0;
 	else
 		return 1;
 }
-

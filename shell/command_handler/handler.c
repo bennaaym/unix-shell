@@ -19,6 +19,7 @@
 #include "../util/util.h"
 #include "../builtin/builtin.h"
 
+
 static int childrenSize = 0;
 static int childrenCounter = -1;
 static int CHILDREN_PID[10];
@@ -59,7 +60,6 @@ void handleSystemCommand(char** parsed)
 }
 
 
-
 int handleBuiltinCommand(char** parsed)
 {
 
@@ -95,5 +95,3 @@ int handleBuiltinCommand(char** parsed)
 
 	return 0;
 }
-
-

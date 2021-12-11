@@ -27,5 +27,4 @@ typedef struct Config
 } Config;
 
 static const Config CONFIG = {"sau",80,10,"\e[1;37m","\e[1;32m","\e[1;36m","\e[0;37m"};
-
 #endif
