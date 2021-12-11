@@ -3,9 +3,11 @@
 #include "command_handler/handler.h"
 #include "config/config.h"
 #include <stdio.h>
+#include "__tests__/tests.h"
 
 int main()
 {
+    run_tests();
     
     char input[CONFIG.COMMAND_MAX_CHARS];
     char* parsed[CONFIG.COMMAND_MAX_WORDS];

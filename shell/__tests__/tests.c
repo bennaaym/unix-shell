@@ -90,6 +90,13 @@ void test_parser_identify_builtin_commands()
     assert(processInput(command,parsed) != 0);
 }
 
-
+void run_tests()
+{
+    test_parser_command_max_chars();
+    test_parser_command_max_words();
+    test_parser_parse_command_with_args();
+    test_parser_parse_command_with_multiple_arbitrary_spaces();
+    test_parser_identify_builtin_commands();
+}
 
 
