@@ -19,6 +19,7 @@
 #include "../util/util.h"
 #include "../builtin/builtin.h"
 
+static int childrenSize = 0;
 static int childrenCounter = -1;
 static int CHILDREN_PID[10];
 
@@ -26,7 +27,6 @@ void handleSystemCommand(char** parsed)
 {
     // forks child
 	pid_t pid = fork();
-    int status;
 
 	if (pid == -1) 
     {
@@ -45,11 +45,12 @@ void handleSystemCommand(char** parsed)
 	} 
     
     childrenCounter = (childrenCounter + 1) % 10;
+    childrenSize = (childrenSize == 10)? 10 : childrenSize + 1;
     CHILDREN_PID[childrenCounter] = pid;
 
   
     // wait for child to terminate
-    waitpid(pid, &status, 0);
+    waitpid(-1, NULL, 0);
 }
 
 
@@ -80,7 +81,7 @@ int handleBuiltinCommand(char** parsed)
             return 1;
         
         case 2:
-            showpid(CHILDREN_PID,childrenCounter+1);
+            showpid(CHILDREN_PID,childrenSize);
             return 1;
 
         default:
