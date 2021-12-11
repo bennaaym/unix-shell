@@ -15,23 +15,17 @@
 
 
 
-const unsigned short NUMBER_OF_BUILT_IN_COMMANDS = 5;
+const unsigned short NUMBER_OF_BUILT_IN_COMMANDS = 3;
 char* BUILT_IN_COMMANDS[] = 
 {
     "exit",
     "cd",
-    "pwd",
     "showpid",
-    "help"
 };
-
-// store the builtin commands name into array
 
 
 void builtinExit(); // exits from the shell
 void cd(char*); // changes the current working directory
 void showpid(int* pids,int lenght); // shows PID of the last 10 process  created by the shell process
-void pwd(); // prints the current working directory
-void help(); // display a help menu to the user
 
 #endif

@@ -9,26 +9,38 @@
  * 
  */
 
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include "../util/util.h"
 
-void builtinExit()
-{
-    exit(0);
-}
+void builtinExit(){ exit(0); }
 
 void cd(char* path)
 {
-    chdir(path);
-}
+    
+    int found = chdir(path);
 
-void pwd()
-{
-    char cwd[1024];
-    getcwd(cwd, sizeof(cwd));
-    printf("%s\n", cwd);
+    if(found == 0)
+    {
+        return;
+    }
+
+    if((found < 0) && (path == NULL)) 
+    {
+        return;
+    }
+
+    if( (found < 0) && path[0] == '*')
+    {
+        printf("too many arguments\n");
+        return;
+    }    
+
+    if(found < 0)
+    {
+        printf("No such directory\n");   
+    }
 }
 
 void showpid(int* pids,int length)
@@ -37,28 +49,4 @@ void showpid(int* pids,int length)
     {
         printf("\t%d\n",pids[i]);
     }
-}
-
-void help()
-{
-    const int MAX_LEN = 30;
-    for(int i = 0 ; i<MAX_LEN;i++)
-    {
-        printf("*");
-    }
-
-    printf("\nHelp\n");
-
-    for(int i = 0; i< MAX_LEN;i++)
-    {
-        printf("*");
-    }
-
-    printf("\nbuiltin commands:");
-    printf("\n- cd      : change the current working directory");
-    printf("\n- pwd     : print the current working directory");
-    printf("\n- showpid : shows the PID of the last process created by this shell process");
-    printf("\n- help    : display a help menu");
-    printf("\n- exit    : exit from shell");
-    printf("\n");
 }

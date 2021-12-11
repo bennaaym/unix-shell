@@ -13,15 +13,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include<sys/types.h>
-#include<sys/wait.h>
+#include <sys/types.h>
+#include <sys/wait.h>
 #include <unistd.h>
 #include "../util/util.h"
 #include "../builtin/builtin.h"
 
-
 static int childrenCounter = -1;
-static int CHILDREN_PID[5];
+static int CHILDREN_PID[10];
 
 void handleSystemCommand(char** parsed)
 {
@@ -45,7 +44,7 @@ void handleSystemCommand(char** parsed)
         exit(0);
 	} 
     
-    childrenCounter = (childrenCounter + 1)%10;
+    childrenCounter = (childrenCounter + 1) % 10;
     CHILDREN_PID[childrenCounter] = pid;
 
   
@@ -81,17 +80,9 @@ int handleBuiltinCommand(char** parsed)
             return 1;
         
         case 2:
-            pwd();
-            return 1;
-        
-        case 3:
             showpid(CHILDREN_PID,childrenCounter+1);
             return 1;
 
-        case 4:
-            help();
-            return 1;
-        
         default:
             break;
 	}
