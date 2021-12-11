@@ -12,11 +12,10 @@
 
 #include <stdio.h>
 #include <assert.h>
+#include <string.h>
 #include "../config/config.h"
 #include "../parser/parser.h"
-
-#include <string.h>
-
+#include "../command_handler/handler.h"
 
 void test_parser_command_max_chars()
 {   
@@ -75,5 +74,22 @@ void test_parser_parse_command_with_multiple_arbitrary_spaces()
     assert(strcmp(parsed[2],"*") == 0);
     assert(parsed[3] == NULL);
 }
+
+void test_parser_identify_builtin_commands()
+{
+    char command[CONFIG.COMMAND_MAX_CHARS];
+    char* parsed[CONFIG.COMMAND_MAX_WORDS];
+
+    strcpy(command,"cd");
+    assert(processInput(command,parsed) == 0);
+
+    strcpy(command,"showpid");
+    assert(processInput(command,parsed) == 0);
+
+    strcpy(command,"ls");
+    assert(processInput(command,parsed) != 0);
+}
+
+
 
 
