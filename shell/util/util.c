@@ -14,7 +14,6 @@
 
 void displayError(char* errorType, char* errorDescription)
 {
-    printf("\n");
     printf("%s :",errorType);
     printf("%s",errorDescription);
     printf("\n");

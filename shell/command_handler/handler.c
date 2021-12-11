@@ -27,6 +27,7 @@ void handleSystemCommand(char** parsed)
 {
     // forks child
 	pid_t pid = fork();
+    int status;
 
 	if (pid == -1) 
     {
@@ -50,7 +51,11 @@ void handleSystemCommand(char** parsed)
 
   
     // wait for child to terminate
-    waitpid(-1, NULL, 0);
+    pid= waitpid(pid, &status, 0);
+    if (pid == -1)
+    {
+        displayError("WaitError","error related to waitpid()");
+    }
 }
 
 
