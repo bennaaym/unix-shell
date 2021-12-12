@@ -14,5 +14,7 @@
 
 void displayError(char*,char*);
 int getNumberOfWords(char *s);
+char* removeLeadingSpaces(char*);
+char* splitString(char*, char*);
 
 #endif

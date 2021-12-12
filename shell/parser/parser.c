@@ -15,15 +15,22 @@
 #include "../util/util.h"
 #include <stdio.h>
 
-void parseSpace(char* input, char** parsed)
+void parseSpace(char* str, char** parsed)
 {
-	char* token = strtok(input," ");
-	for (int i=0; i< CONFIG.COMMAND_MAX_WORDS;i++)
-	{
-		if(token == NULL) break;
-		parsed[i] = token;
-        token = strtok(NULL, " ");
-	}
+    int i,nmbrOfWords=getNumberOfWords(str);
+    for (i = 0; i < nmbrOfWords; i++) {
+        int nmbr = getNumberOfWords(str);
+        parsed[i] = malloc(sizeof(char)*strlen(str)); 
+        if( nmbr > 1)str = splitString(str, parsed[i]);
+        else {
+            parsed[i]=removeLeadingSpaces(str);
+            }
+        if (parsed[i] == NULL)
+            break;
+        if (strlen(parsed[i]) == 0)
+            i--;
+    }
+
 }
 
 int processInput(char* input, char** parsed)
