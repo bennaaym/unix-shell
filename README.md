@@ -187,6 +187,7 @@ To contribute to this open-source project, follow these steps:
 
 ## Team
 
+**Group 21**
 <div align="center">
 <table>
   <tr>
